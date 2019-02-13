@@ -21,16 +21,21 @@ print(alpha)
 
 # Function definition
 
+# Line function
 def f(x, angle, c) :
 	m = round(math.tan(math.radians(angle)), 3)
 	
 	return round(m * x  +  c, 3) 
 
+# Calc diagonal length
 def diagonal_length(width, length):
-	return round(math.sqrt(width**2 + length**2)
 
-def 
+	return round(math.sqrt(width**2 + length**2))
 
-# Check if alpha < THETA
-if alpha > THETA :
 
+# Calc Lp (length where "c" in the line equation will be taken)
+# alpha and theta are in degree!
+def el_p(alpha, theta, diagonal, diagonal_up):
+
+	if theta > alpha :
+		
