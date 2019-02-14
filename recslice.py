@@ -38,4 +38,10 @@ def diagonal_length(width, length):
 def el_p(alpha, theta, diagonal, diagonal_up):
 
 	if theta > alpha :
-		
+		diagonal_up
+
+	return pass
+
+
+
+
