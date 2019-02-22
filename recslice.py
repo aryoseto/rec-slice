@@ -35,12 +35,22 @@ def diagonal_length(width, length):
 
 # Calc Lp (length where "c" in the line equation will be taken)
 # alpha and theta are in degree!
-def el_p(alpha, theta, diagonal, diagonal_up):
+def el_p(alpha, theta, diagonal):
 
 	if theta > alpha :
-		diagonal_up
+		diagonal_up = diagonal * math.cos(math.radians(theta - alpha))
 
-	return pass
+	elif theta < alpha :
+		diagonal_up = diagonal * math.cos(math.radians(alpha - theta))
+
+	else :
+		diagonal_up = diagonal
+
+	el_p = diagonal_up / math.cos(90 - math.radians(theta))
+
+	return round(el_p, 3)
+
+
 
 
 
