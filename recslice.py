@@ -13,7 +13,7 @@ L = 40
 
 # Direction of slice (in DEGREE)
 # The slice is perpendicular of this direction
-THETA = 45
+THETA = 25
 
 
 # Calculate ALPHA (angle of the rec diagonal)
@@ -52,7 +52,7 @@ def el_p(alpha, theta, diagonal):
 		diagonal_up = diagonal * math.cos(math.radians(alpha - theta))
 
 	else :
-		diagonal_up == diagonal
+		diagonal_up = diagonal
 
 	el_p = diagonal_up / math.cos(math.radians(90 - theta))
 
@@ -107,6 +107,11 @@ for c in numpy.arange(0, Lp, Lp/100) :
 #Check nodes coordinates
 print(*nodes_list, sep="\n")
 
+ready_plot_node_list = []
+for item in nodes_list :
+	ready_plot_node_list.append([ [item[1][0][0],item[1][1][0]], [item[1][0][1], item[1][1][1]] ] )
+
+print(*ready_plot_node_list, sep="\n")
 
 # Check line formula
 # x_list = []
@@ -119,5 +124,8 @@ print(*nodes_list, sep="\n")
 # plt.plot(x_list, y_list)
 # plt.show()
 
+# Plot line 
+for item in ready_plot_node_list :
+	plt.plot(item[0], item[1])
 
-
+plt.show()
