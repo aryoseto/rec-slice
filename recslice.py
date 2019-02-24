@@ -18,7 +18,7 @@ THETA = 45
 
 # Calculate ALPHA (angle of the rec diagonal)
 alpha = math.degrees(math.atan(B/L))
-print(alpha)
+print('ALPHA =', alpha)
 
 
 # Function definition
@@ -38,7 +38,7 @@ def fy(y, angle, c) :
 # Calc diagonal length
 def diagonal_length(width, length):
 
-	return round(math.sqrt(width**2 + length**2))
+	return round(math.sqrt(width**2 + length**2),3)
 
 
 # Calc Lp (length where "c" in the line equation will be taken)
@@ -54,14 +54,17 @@ def el_p(alpha, theta, diagonal):
 	else :
 		diagonal_up == diagonal
 
-	el_p = diagonal_up / math.cos(90 - math.radians(theta))
+	el_p = diagonal_up / math.cos(math.radians(90 - theta))
+
+	print("This is d' = ", diagonal_up)
+
 
 	return round(el_p, 3)
 
 
 # Start program
 dia_length = diagonal_length(B, L)
-
+print('This is d =', dia_length)
 # Calculate Lp
 Lp = el_p(alpha, THETA, dia_length)
 print ("This is Lp = ", Lp)
@@ -73,7 +76,7 @@ x2 = L
 y3 = 0
 y4 = B
 
-for c in numpy.arange(0, Lp, round(Lp/100, 3)) :
+for c in numpy.arange(0, Lp, Lp/100) :
 
 	node_selected = []
 	
@@ -98,7 +101,7 @@ for c in numpy.arange(0, Lp, round(Lp/100, 3)) :
 		node_selected.append([x4, y4])
 
 	# Put all the selected nodes into a list
-	nodes_list.append([c, node_selected])
+	nodes_list.append([round(c,3), node_selected])
 
 
 #Check nodes coordinates
